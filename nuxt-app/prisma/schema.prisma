@@ -1,0 +1,24 @@
+// Prisma schema for the Nuxt app
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Trainee {
+  id         Int      @id @default(autoincrement())
+  name       String
+  avatar     String?
+  experience String?
+  major      String?
+  age        String?
+  school     String?
+  country    String?
+  cv         Boolean  @default(false)
+  interview  Boolean  @default(false)
+  video      Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
